@@ -18,7 +18,7 @@ namespace confirmConsumer1
             //声明通道
             var channel = connection.CreateModel();
             //声明队列
-            channel.QueueDeclare(QUEUE_NAME, true);
+            channel.QueueDeclare(QUEUE_NAME, true,false,false);
             //绑定交换机
             channel.QueueBind(QUEUE_NAME, EXCHANGE_NAME, "info");
             //定义消费者
