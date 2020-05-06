@@ -65,6 +65,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "deadletterProducer", "deadl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "deadletterConsumer", "deadletterConsumer\deadletterConsumer.csproj", "{169F0910-268A-4942-BAAB-2A48C9740035}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "deadletterConsumer1", "deadletterConsumer1\deadletterConsumer1.csproj", "{1B698A7B-6BA3-4674-84C5-339363E75658}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -163,6 +165,10 @@ Global
 		{169F0910-268A-4942-BAAB-2A48C9740035}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{169F0910-268A-4942-BAAB-2A48C9740035}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{169F0910-268A-4942-BAAB-2A48C9740035}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B698A7B-6BA3-4674-84C5-339363E75658}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B698A7B-6BA3-4674-84C5-339363E75658}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B698A7B-6BA3-4674-84C5-339363E75658}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B698A7B-6BA3-4674-84C5-339363E75658}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -190,6 +196,7 @@ Global
 		{19CE4898-B199-42FF-BDE6-F1C30CB91C4D} = {26989FBD-D7C9-4ADA-AB34-F2520FD15F95}
 		{1B5BF34E-AC75-4945-B4AC-9241E6DCC0CF} = {D82DB735-4EFB-4365-86E2-310CC0B9AC93}
 		{169F0910-268A-4942-BAAB-2A48C9740035} = {D82DB735-4EFB-4365-86E2-310CC0B9AC93}
+		{1B698A7B-6BA3-4674-84C5-339363E75658} = {D82DB735-4EFB-4365-86E2-310CC0B9AC93}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {520F2DAC-8A19-4F1D-BDE4-B2BED1F9AC1D}

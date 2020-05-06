@@ -7,9 +7,8 @@ using RabbitMQ.Client.Events;
 namespace deadletterConsumer
 {
     class Program
-    {
-        //死信队列  A
-        private const string QUEUE_DEAD_LETTER_NAMEA = "deadLetterQueueA";
+    {    
+
         //业务队列  A
         private const string QUEUE_BUSINESS_NAMEA = "businessQueueA";
 
@@ -33,7 +32,7 @@ namespace deadletterConsumer
                 }
                 catch
                 {
-                     channel.BasicNack(ea.DeliveryTag, false, false);
+                    channel.BasicNack(ea.DeliveryTag, false, false);
                 }
                 finally
                 {
@@ -42,7 +41,7 @@ namespace deadletterConsumer
                 }
             };
             //autoAck=false 关闭自动应答
-            channel.BasicConsume(QUEUE_DEAD_LETTER_NAMEA, false, consumer);
+            channel.BasicConsume(QUEUE_BUSINESS_NAMEA, false, consumer);
             Console.ReadKey();
         }
     }

@@ -14,13 +14,9 @@ namespace deadletterProducer
         private const string DEAD_LETTER_EXCHANGE_NAME = "test_deadLetterExchange";
         //业务队列  A
         private const string QUEUE_BUSINESS_NAMEA = "businessQueueA";
-        //业务队列  B
-        private const string QUEUE_BUSINESS_NAMEB = "businessQueueB";
         //死信队列  A
         private const string QUEUE_DEAD_LETTER_NAMEA = "deadLetterQueueA";
-        //死信队列  B
-        private const string QUEUE_DEAD_LETTER_NAMEB = "deadLetterQueueB";
-
+        
 
         static void Main(string[] args)
         {   
@@ -47,8 +43,18 @@ namespace deadletterProducer
 
                     for (int i = 0; i < 4; i++)
                     {
+                        var properties = channel.CreateBasicProperties();
+                        properties.DeliveryMode = 2;
+                        properties.ContentType = "application/json";
+                        properties.ContentEncoding = "UTF-8";
+
+                        properties.Headers = new Dictionary<string, object>
+                        {
+                            { "exchange",EXCHANGE_BUSINESS_NAME},
+                            { "routingKey",""}
+                        };
                         var msg = "deadletter";
-                        channel.BasicPublish(EXCHANGE_BUSINESS_NAME, "", false, null, Encoding.UTF8.GetBytes(msg));
+                        channel.BasicPublish(EXCHANGE_BUSINESS_NAME, "", false, properties, Encoding.UTF8.GetBytes(msg));
 
                         Console.WriteLine(msg);
                         System.Threading.Thread.Sleep(1000);
