@@ -11,11 +11,11 @@ namespace deadletterProducer
         //业务交换机
         private const string EXCHANGE_BUSINESS_NAME = "test_businessExchange";
         //死信交换机
-        private const string DEAD_LETTER_EXCHANGE_NAME = "test_deadLetterExchange";
+        private const string DEAD_LETTER_EXCHANGE_NAME = "fnlinker.dlx";
         //业务队列  A
         private const string QUEUE_BUSINESS_NAMEA = "businessQueueA";
         //死信队列  A
-        private const string QUEUE_DEAD_LETTER_NAMEA = "deadLetterQueueA";
+        private const string QUEUE_DEAD_LETTER_NAMEA = "fnlinker.dlx";
         
 
         static void Main(string[] args)
@@ -27,19 +27,23 @@ namespace deadletterProducer
 
                     //声明业务队列A绑定交换机
                     channel.ExchangeDeclare(EXCHANGE_BUSINESS_NAME, ExchangeType.Fanout,true);
+
+                    //业务队列绑定死信交换机
                     channel.QueueDeclare(QUEUE_BUSINESS_NAMEA,true,false,false,arguments:new Dictionary<string, Object> 
                     {
                         { "x-dead-letter-exchange",DEAD_LETTER_EXCHANGE_NAME },    //设置当前队列的DLX
-                        { "x-dead-letter-routing-key","DEAD_LETTER_QUEUEA_ROUTING_KEY" }                     //设置当前DLK的路由key
+                        { "x-dead-letter-routing-key","" }                     //设置当前DLK的路由key
                     });
                     channel.QueueBind(QUEUE_BUSINESS_NAMEA, EXCHANGE_BUSINESS_NAME,"");
 
 
-                    //声明死信队列A绑定交换机
-                    channel.ExchangeDeclare(DEAD_LETTER_EXCHANGE_NAME,ExchangeType.Direct,true);
-                    channel.QueueDeclare(QUEUE_DEAD_LETTER_NAMEA,true,false,false);
-                    channel.QueueBind(QUEUE_DEAD_LETTER_NAMEA, DEAD_LETTER_EXCHANGE_NAME, "DEAD_LETTER_QUEUEA_ROUTING_KEY");
 
+                  //声明死信队列A绑定交换机
+                  //  channel.ExchangeDeclare(DEAD_LETTER_EXCHANGE_NAME,ExchangeType.Direct,true);
+
+                    channel.QueueDeclare(QUEUE_DEAD_LETTER_NAMEA,true,false,false);
+
+                    channel.QueueBind(QUEUE_DEAD_LETTER_NAMEA, DEAD_LETTER_EXCHANGE_NAME, "");
 
                     for (int i = 0; i < 4; i++)
                     {

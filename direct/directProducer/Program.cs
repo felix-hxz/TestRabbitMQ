@@ -6,7 +6,7 @@ namespace directProducer
 {
     class Program
     {
-        private const string EXCHANGE_NAME = "test_exchange_direct";
+        private const string EXCHANGE_NAME = "logs_direct";
         static void Main(string[] args)
         {
             //获取连接
@@ -18,7 +18,7 @@ namespace directProducer
 
             var msg = "hello direct";
             //发送消息
-            channel.BasicPublish(EXCHANGE_NAME, "error", false, null, Encoding.UTF8.GetBytes(msg));
+            channel.BasicPublish(EXCHANGE_NAME, "info", false, null, Encoding.UTF8.GetBytes(msg));
 
             Console.WriteLine("--send msg:" + msg);
 

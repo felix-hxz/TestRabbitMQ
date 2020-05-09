@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "UtilsRabbitmq": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "键": "值"
+      }
+    }
+  }
+}
