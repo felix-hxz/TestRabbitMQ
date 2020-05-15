@@ -27,9 +27,13 @@ namespace deadletterConsumer1
                 {   
                     
                     
+                    
                     var properties = ea.BasicProperties;
 
-                    properties.Headers.TryGetValue("exchange", out object value);
+                    Console.WriteLine(properties.Headers);
+
+
+                  /*  properties.Headers.TryGetValue("exchange", out object value);
 
                     var values= Encoding.UTF8.GetString((byte[])value);
 
@@ -45,7 +49,7 @@ namespace deadletterConsumer1
                     properties1.ContentType = "application/json";
                     properties1.ContentEncoding = "UTF-8";
 
-                    properties.Headers = new Dictionary<string, object>
+                    properties1.Headers = new Dictionary<string, object>
                         {
                             { "exchange","test_businessExchange"},
                             { "routingKey",""}
@@ -55,7 +59,7 @@ namespace deadletterConsumer1
 
                     //重新补发
                     channel.BasicPublish("test_businessExchange", "",false, properties1, ea.Body);
-
+                    */
 
                 }
                 catch
