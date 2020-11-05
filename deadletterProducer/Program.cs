@@ -35,8 +35,8 @@ namespace deadletterProducer
                         { "x-dead-letter-routing-key","" }                     //设置当前DLK的路由key
                     });
                     channel.QueueBind(QUEUE_BUSINESS_NAMEA, EXCHANGE_BUSINESS_NAME,"");
-
-
+                   
+                   //死信队列绑定交换机
 
                   //声明死信队列A绑定交换机
                   //  channel.ExchangeDeclare(DEAD_LETTER_EXCHANGE_NAME,ExchangeType.Direct,true);

@@ -26,7 +26,7 @@ namespace deadletterConsumer1
                 try
                 {   
                     
-                    
+                    Console.WriteLine("mq监听记录值！")
                     
                     var properties = ea.BasicProperties;
 
@@ -68,7 +68,7 @@ namespace deadletterConsumer1
                 }
                 finally
                 {
-                   //channel.BasicAck(ea.DeliveryTag, false);
+                   //channel.BasicAck(ea.DeliveryTag, false);  //自动应答 false
                 }
             };
             //autoAck=false 关闭自动应答
