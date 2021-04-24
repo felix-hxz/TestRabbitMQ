@@ -29,6 +29,7 @@ namespace TestRabbitmqProducer
 
             Console.ReadKey();
             
+            //关闭channel
             //channel.Close();
             //connection.Close();
         }
